@@ -13,6 +13,7 @@ theme:
     primary: custom
   font:
     text: Montserrat
+  custom_dir: overrides
 
   features:
     - navigation.tracking
@@ -40,6 +41,7 @@ nav:
       - ./guide/template.md
       - ./guide/ressources.md
       - ./guide/annexes.md
+      - ./guide/contributeur.md
   - Data Management Plan:
       - ./pgd/definitions.md
       - ./pgd/pgdcioos.md
