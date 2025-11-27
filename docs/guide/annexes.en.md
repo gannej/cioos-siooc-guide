@@ -99,21 +99,139 @@ Therefore, it is recommended to provide information on data collection methods a
 
 The **samplingProtocol** variable, which must appear in the Event Core table, allows you to clarify the notion of absence, if applicable.  
 
-## The "Basis of Record"  
+## The "Basis of Record" or the origin of the observation 
 
-In the context of the Darwin Core standard, the ***basisOfRecord*** variable describes the nature of the observation that served as the source for the recorded data. It provides information about how the data were obtained and the form in which they are stored.  
+In the context of the Darwin Core standard, the ***basisOfRecord*** variable describes the origin of the observation. It provides information on how the data were obtained and the form in which they are stored.  
 
-The possible values ​​are standardized, meaning that the values ​​must be chosen from the values ​​defined by the Darwin Core. The most commonly used are generally *PreservedSpecimen*, *LivingSpecimen*, and *HumanObservation*. The definitions we propose are intended to make it easier to determine which value to choose:  
+The possible values are standardized, meaning you must select one of the values defined by Darwin Core. We present here the 6 most frequently used values. The definitions we provide are intended to make it easier to determine which value to choose. Be sure to respect uppercase and lowercase characters!  
 
-**PreservedSpecimen:** This value indicates that the data were collected from a preserved specimen, typically in a museum, collection, or other similar institution. Preserved specimens can include mounted animals, dried plants, DNA samples, etc.  
+**HumanObservation:** Indicates that the data were collected through the direct observation of a human observer. For example, observations of animal behavior in nature, field surveys conducted by scientists or amateur naturalists, etc. This is the most commonly used term for field inventories, especially when species identification is carried out in the field.
 
-Example: A fish inventory is conducted for a given location. Some fish are frozen to take certain measurements (such as size, sex, etc.). In the table of specimen measurements, under the *basisOfRecord* variable, you should enter *PreservedSpecimen*.  
+**MachineObservation:** Indicates that the observation was made using a device, such as a passive bat detector (e.g., Anabat), a trail camera, or an autonomous recorder (e.g., an SM4). Even if a human performs the identification, the actual observation was made by the device.
 
-**LivingSpecimen:** This value indicates that the data was collected from a living specimen, i.e., an organism that is still alive at the time of data collection. This can include field observations of animals, plants, or other living organisms.  
+**MaterialSample:** Applies to occurrences identified in a laboratory setting. A sample (e.g., sediment) is collected, stored in a container, likely preserved with ethanol, and the organisms within it are identified later in the lab. After identification, organisms may be stored long-term and added to a collection, or simply discarded.
 
-Example: A fish inventory is conducted for a given location. The fish are caught, counted, and measurements are taken. The fish are finally released back into the water. In the tables of occurrences and specimen measurements, under the *basisOfRecord* variable, you should enter *LivingSpecimen*.  
+**PreservedSpecimen, LivingSpecimen, and FossilSpecimen:** These three terms apply to organisms in a collection that are, respectively, preserved, living, or fossilized. **PreservedSpecimen** refers to data collected from a specimen stored in a museum, collection, or similar institution. Preserved specimens may include taxidermied animals, dried plant samples, DNA samples, organisms stored in ethanol, etc. **LivingSpecimen** refers to data collected from a living organism not in the wild, such as in an aquarium, zoo, or botanical garden. FossilSpecimen applies to fossil organisms.
+If one of these last three terms is used, it is recommended to also include the columns **institutionCode**, **collectionCode**, and **catalogNumber** to identify, respectively: the institution that holds the collection, the collection identifier, and the specimen identifier within that collection.
 
-**HumanObservation:** This value indicates that the data was collected through direct observation by a human observer. For example, observations of animal behavior in the wild, field surveys conducted by scientists or amateur naturalists, etc.  
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .table-container {
+      margin-bottom: 40px;    
+    }
+    table {
+      border-collapse: collapse;
+      width: max-content;
+    }    
+    th, td {
+      padding: 6px 10px;
+      text-align: center;
+      white-space: nowrap;
+    }
+    thead {
+      background-color: #f0f0f0;
+    }    
+  </style>
+</head>
+<body>
+
+<h4>The following table summarizes these terms and the contexts in which they may be used:</h4>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>HumanObservation</th>
+        <th>MachineObservation</th>
+        <th>MaterialSample</th>
+        <th>PreservedSpecimen</th>
+        <th>FossilSpecimen</th>
+        <th>LivingSpecimen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Direct observation</td>
+        <td>yes</td>
+        <td>no</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+      </tr>
+      <tr>
+        <td>Indirect observation</td>
+        <td>no</td>
+        <td>yes</td>
+        <td>no</td>
+        <td>no</td>
+        <td>no</td>
+        <td>no</td>
+      </tr>
+      <tr>
+        <td>Laboratory identification</td>
+        <td>no</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes or no</td>
+      </tr>
+	  <tr>
+	    <td>Observation in nature</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>no</td>
+        <td>no</td>
+        <td>no</td>
+	  </tr>
+      <tr>
+        <td>Observation in captivity, in culture, in cultivation, etc</td>
+        <td>no</td>
+        <td>no</td>
+        <td>no</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+      </tr>		
+	  <tr>
+	    <td>Living organism</td>
+        <td>yes or no</td>
+        <td>yes</td>
+        <td>no</td>
+        <td>no</td>
+        <td>no</td>
+        <td>yes</td>
+	  </tr>		
+	  <tr>
+	    <td>Possibility to confirm identification later</td>
+        <td>no</td>
+        <td>yes, as long as the images or recordings are preserved</td>
+        <td>yes, if the specimens are not discarded</td>
+        <td>no</td>
+        <td>yes</td>
+        <td>yes</td>
+	  </tr>		
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
+
+<div style="margin-left: 20px;">
+<small>In Darwin Core, there is a variable (column) “vitality” which should not be confused with “LivingSpecimen”, a possible value of the “basisOfRecord” variable. “vitality” is used to indicate whether the organism was alive or not at the time of observation. If this variable is included, its value would be “alive|vivant” in the case of a basisOfRecord with the value “LivingSpecimen”, or “dead|mort” for PreservedSpecimen, FossilSpecimen, and MaterialSample. </small><br>
+</div>  
+
+
 
 ## The Sampling Protocol  
 
@@ -124,5 +242,6 @@ The **samplingProtocol** variable must appear in the Event Core table. The Event
 In this table, each row represents a distinct sampling or observation event. The samplingProtocol variable is used to record the specific protocol or method used during this event to collect biological samples or observe organisms.  
 
 If multiple sampling protocols were applied during the same event, Darwin Core recommends separating values ​​using a space-pipe-space character (“ | “).  
+
 
 Ex: Lobster trap | Modified lobster trap  
