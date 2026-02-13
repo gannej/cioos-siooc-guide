@@ -34,7 +34,12 @@ This assessment should be guided by several key elements:
 * The respect for any agreements, whether written or verbal, made with participants, communities, or data owners,
 * Compliance with institutional policies, national regulations, and relevant legal frameworks,
 * Ethical and moral considerations, protecting the privacy, safety and trust of the research participants and their communities, 
-* Awareness that sensitivity can evolve over time; for example, once a scientific article is published, certain reputational risks may decrease, while other risks may persist or even increase depending on context. 
+* Awareness that sensitivity can evolve over time; for example, once a scientific article is published, certain reputational risks may decrease, while other risks may persist or even increase depending on context.
+
+![Data sensitivity matrix](../assets/images/sensitivitymatrix.png)  
+/// caption
+Adapted from the ris classification created by Calcul Québec.
+///
 
 ## How to collect sensitive data
 
