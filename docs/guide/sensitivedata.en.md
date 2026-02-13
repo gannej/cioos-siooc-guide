@@ -38,7 +38,7 @@ This assessment should be guided by several key elements:
 
 ![Data sensitivity matrix](../assets/images/sensitivitymatrix.png)  
 /// caption
-Adapted from the ris classification created by Calcul Québec.
+Adapted from the risk classification created by Calcul Québec.
 ///
 
 ## How to collect sensitive data
