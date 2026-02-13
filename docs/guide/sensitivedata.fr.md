@@ -64,11 +64,24 @@ Afin de réduire les risques d’identification lors de l’analyse, les cherche
 
 Lors du choix d’une technique de transformation des données, il est important de préserver les variables pertinentes pour la question de recherche. Par exemple, si l’objectif est de comparer les attitudes environnementales selon les groupes d’âge, il peut être nécessaire de conserver les catégories d’âge tout en généralisant d’autres détails moins pertinents pour l’analyse et en préservant l’anonymat des participants.
 
+### Données de biodiversité
+
+Plusieurs variables peuvent être ajustées afin de réduire la sensibilité des données sur la biodiversité, notamment :
+* Les dates, qui peuvent être généralisées à l’année (tout en restant conformes à la norme ISO).
+* L’identification taxonomique, qui peut être rapportée à un rang supérieur (par exemple, le genre ou la famille plutôt que l’espèce).
+* Le type de signalement, où les données peuvent être exprimées en présence/absence plutôt qu’en nombre exact d’observations.
+
+La localisation précise d’une observation peut également être sensible, en particulier lorsqu’elle concerne des espèces vulnérables ou menacées. 
+Pour les données de biodiversité, OBIS (Ocean Biodiversity Information System) utilise des polygones en WKT (Well-Known Text) afin de généraliser spatialement ou d’obscurcir les données sensibles en définissant une zone géographique — plutôt qu’un point précis — où l’occurrence est rapportée.
+Au lieu de publier des coordonnées exactes, l’enregistrement est associé à un polygone représentant une unité plus large, comme une cellule de grille, une zone protégée ou une limite définie sur mesure. 
+Le format WKT encode la géométrie de ce polygone sous forme de chaîne de texte normalisée, ce qui facilite son stockage, son partage et son interprétation de manière cohérente entre différents systèmes géospatiaux. 
+En reliant les données d’occurrence à ces polygones, OBIS conserve un contexte spatial utile pour l’analyse écologique tout en réduisant le risque de révéler des localisations sensibles.
+
 ## Comment partager des données sensibles
 
 Pour être partagées publiquement en toute sécurité, que ce soit par le biais d’une publication scientifique ou sous forme de jeu de données, les données sensibles doivent souvent subir des modifications visant à réduire ou éliminer la possibilité d’identifier des individus, des communautés, des organismes ou des emplacements précis.
 
-9. Conclusion
+## Conclusion
 
 Les données sensibles doivent être manipulées avec soin à chaque étape du projet de recherche, de la collecte à l’analyse, au stockage et au partage. Lorsqu’elles sont gérées de manière responsable, elles peuvent également ouvrir la voie à de nouvelles perspectives et orientations de recherche. La gestion adéquate des données sensibles nécessite :
 * L’évaluation des risques,
