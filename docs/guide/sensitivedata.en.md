@@ -59,11 +59,17 @@ To reduce identification risks during analysis, researchers can apply different 
 * Anonymization (irreversible): Removing all direct and indirect identifiers in a way that makes re-identification impossible. Once anonymized, the data cannot be traced back to its original source.
 * Depersonalization (pseudonymization): Replacing identifiers with codes while keeping a secure, separate key that allows re-identification if necessary and ethically justified.
 This approach protects privacy while still enabling follow-up analyses or validation when required.
-When choosing a data transformation technique, it is important to preserve the variables that are relevant to the research question. For instance, if the goal is to compare environmental attitudes across age groups, it may be necessary to keep age categories while generalizing other details that are less relevant to the analysis and keep the identity of participants hidden. 
+When choosing a data transformation technique, it is important to preserve the variables that are relevant to the research question. For instance, if the goal is to compare environmental attitudes across age groups, it may be necessary to keep age categories while generalizing other details that are less relevant to the analysis and keep the identity of participants hidden.
 
-### Localization in biodiversity data
 
-The precise localization of an observation can be sensitive, especially when it is about a vulnerable or endangered species. 
+### Biodiversity data
+
+Several variables can be adjusted to reduce the sensitivity of biodiversity records, including:
+* Dates, which can be generalized to the year level (while remaining ISO-compliant).
+* Taxonomic identification, which can be reported at a higher rank (e.g., genus or family rather than species).
+* Occurrence reporting, where records can be expressed as presence/absence instead of providing exact observation counts.
+
+The precise localization of an observation can be sensitive, especially when it relates vulnerable or endangered species. 
 For biodiversity data, OBIS (Ocean Biodiversity Information System) uses WKT (Well-Known Text) polygons to spatially generalize or obscure sensitive data by defining a geographic area—rather than a precise point location—where a species occurrence is reported.
 Instead of publishing exact coordinates the record is associated with a polygon representing a broader area such as a grid cell, protected zone, or custom boundary. 
 The WKT format encodes this polygon geometry as a text string, allowing it to be stored, shared, and interpreted consistently across geospatial systems. 
