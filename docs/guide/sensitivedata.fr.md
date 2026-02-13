@@ -36,6 +36,11 @@ Cette évaluation devrait être guidée par plusieurs éléments clés :
 * Des considérations éthiques et morales visant à protéger la vie privée, la sécurité et la confiance des participants à la recherche et de leurs communautés,
 * La reconnaissance que la sensibilité peut évoluer dans le temps ; par exemple, une fois un article scientifique publié, certains risques réputationnels peuvent diminuer, tandis que d’autres peuvent persister ou même augmenter selon le contexte.
 
+![Grille de sensibilité des données](../assets/images/grillesensibilite.png)  
+/// caption
+Adaptée de la classification des risques de Calcul Québec.
+///
+
 ## Comment collecter des données sensibles
 
 Le **consentement éclairé** doit guider la collecte des données sensibles. 
