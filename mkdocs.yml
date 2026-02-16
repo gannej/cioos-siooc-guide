@@ -39,6 +39,7 @@ nav:
       - ./guide/recommendations.md
       - ./guide/dictionnaire.md
       - ./guide/template.md
+      - ./guide/sensitivedata.md
       - ./guide/ressources.md
       - ./guide/annexes.md
       - ./guide/contributeur.md
