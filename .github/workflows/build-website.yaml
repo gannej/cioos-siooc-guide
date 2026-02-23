@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - development
-  pull_request_target:
+  pull_request:
     branches:
       - development
       - main
@@ -26,7 +26,7 @@ permissions:
 jobs:
   # Single deploy job since we're just deploying
   deploy:
-    if: github.event_name == 'push' || github.event_name == 'pull_request_target'
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
     env:
       BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
     environment:
@@ -39,15 +39,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Checkout (pull_request_target)
-        if: github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.full_name == github.repository
+      - name: Checkout (pull_request)
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
       - name: Guard against fork PRs
-        if: github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.full_name != github.repository
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
         run: |
           echo "Skipping deployment for forked PRs."
           exit 0
@@ -81,14 +81,14 @@ jobs:
             uv run mike deploy --push "$VERSION_NAME"
           fi
       - name: Check if message already exists
-        if: github.event_name == 'pull_request_target'
+        if: github.event_name == 'pull_request'
         id: find-comment
         uses: peter-evans/find-comment@v3
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body-includes: "🧪🎉 This version of the website will be available shortly at: "
       - name: Add comment to PR
-        if: github.event_name == 'pull_request_target' && steps.find-comment.outputs.comment-id == ''
+        if: github.event_name == 'pull_request' && steps.find-comment.outputs.comment-id == ''
         uses: peter-evans/create-or-update-comment@v3
         with:
           issue-number: ${{ github.event.pull_request.number }}
@@ -96,7 +96,7 @@ jobs:
             🧪🎉 This version of the website will be available shortly at: https://guide.cioos.ca/${{ env.VERSION_NAME }}
 
   cleanup-preview:
-    if: github.event_name == 'pull_request_target' && github.event.action == 'closed'
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
     steps:
       - name: Guard against fork PRs
