@@ -42,7 +42,7 @@ nav:
       - ./guide/sensitivedata.md
       - ./guide/ressources.md
       - ./guide/annexes.md
-      - ./guide/contributeur.md
+      - ./guide/contributions.md
   - Data Management Plan:
       - ./pgd/definitions.md
       - ./pgd/pgdcioos.md
