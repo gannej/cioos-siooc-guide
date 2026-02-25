@@ -99,7 +99,7 @@ Therefore, it is recommended to provide information on data collection methods a
 
 The **samplingProtocol** variable, which must appear in the Event Core table, allows you to clarify the notion of absence, if applicable.  
 
-## The "Basis of Record" or the origin of the observation 
+## The "Basis of Record"
 
 In the context of the Darwin Core standard, the ***basisOfRecord*** variable describes the origin of the observation. It provides information on how the data were obtained and the form in which they are stored.  
 
@@ -245,3 +245,4 @@ If multiple sampling protocols were applied during the same event, Darwin Core r
 
 
 Ex: Lobster trap | Modified lobster trap  
+
